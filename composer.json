@@ -15,13 +15,13 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "yajra/laravel-datatables-oracle": "^12",
+        "php": "^8.3",
+        "yajra/laravel-datatables-oracle": "^13",
         "league/fractal": "^0.20.1"
     },
     "require-dev": {
         "larastan/larastan": "^3.1",
-        "orchestra/testbench": "^10",
+        "orchestra/testbench": "^11.0",
         "laravel/pint": "^1.21",
         "rector/rector": "^2.0"
     },
@@ -37,7 +37,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "12.x-dev"
+            "dev-master": "13.x-dev"
         },
         "laravel": {
             "providers": [
