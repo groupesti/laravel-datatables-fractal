@@ -3,10 +3,14 @@
 namespace Yajra\DataTables\Fractal\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Schema\Builder;
+use Illuminate\Foundation\Application;
 use Illuminate\Testing\TestResponse;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Yajra\DataTables\DataTablesServiceProvider;
 use Yajra\DataTables\Fractal\Tests\Models\Role;
 use Yajra\DataTables\Fractal\Tests\Models\User;
+use Yajra\DataTables\FractalServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -20,7 +24,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function migrateDatabase()
     {
-        /** @var \Illuminate\Database\Schema\Builder $schemaBuilder */
+        /** @var Builder $schemaBuilder */
         $schemaBuilder = $this->app['db']->connection()->getSchemaBuilder();
         if (! $schemaBuilder->hasTable('users')) {
             $schemaBuilder->create('users', function (Blueprint $table) {
@@ -86,7 +90,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Set up the environment.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param  Application  $app
      */
     protected function getEnvironmentSetUp($app)
     {
@@ -102,8 +106,8 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app): array
     {
         return [
-            \Yajra\DataTables\DataTablesServiceProvider::class,
-            \Yajra\DataTables\FractalServiceProvider::class,
+            DataTablesServiceProvider::class,
+            FractalServiceProvider::class,
         ];
     }
 

@@ -66,7 +66,7 @@ class FractalTransformer
     /**
      * Get or create transformer instance.
      *
-     * @param  \Closure|class-string|TransformerAbstract  $transformer
+     * @param  Closure|class-string|TransformerAbstract  $transformer
      */
     protected function createTransformer(Closure|string|TransformerAbstract $transformer): Closure|TransformerAbstract
     {
