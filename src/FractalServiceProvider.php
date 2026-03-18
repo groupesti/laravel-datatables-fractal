@@ -39,19 +39,27 @@ class FractalServiceProvider extends ServiceProvider
     protected function registerMacro(): void
     {
         DataTableAbstract::macro('setTransformer', function ($transformer) {
-            $this->transformer = [$transformer];
+            $reflector = new \ReflectionClass($this);
+            $property = $reflector->getProperty('transformer');
+            $property->setValue($this, [$transformer]);
 
             return $this;
         });
 
         DataTableAbstract::macro('addTransformer', function ($transformer) {
-            $this->transformer[] = $transformer;
+            $reflector = new \ReflectionClass($this);
+            $property = $reflector->getProperty('transformer');
+            $currentValue = $property->getValue($this);
+            $currentValue[] = $transformer;
+            $property->setValue($this, $currentValue);
 
             return $this;
         });
 
         DataTableAbstract::macro('setSerializer', function ($serializer) {
-            $this->serializer = $serializer;
+            $reflector = new \ReflectionClass($this);
+            $property = $reflector->getProperty('serializer');
+            $property->setValue($this, $serializer);
 
             return $this;
         });
