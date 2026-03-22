@@ -1,6 +1,6 @@
 {
-    "name": "yajra/laravel-datatables-fractal",
-    "description": "Laravel DataTables Fractal Plugin.",
+    "name": "groupesti/laravel-datatables-fractal",
+    "description": "Laravel DataTables Fractal Plugin for Laravel 13. Fork of yajra/laravel-datatables-fractal.",
     "keywords": [
         "laravel",
         "datatables",
@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "yajra/laravel-datatables-oracle": "^13",
+        "groupesti/laravel-datatables-oracle": "^13",
         "league/fractal": "^0.20.1"
     },
     "require-dev": {
